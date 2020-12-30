@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 )
-
+//implement DEQUEUE
 type Deque struct {
 	front *Node
 	back *Node
