@@ -16,26 +16,26 @@ type Node struct {
 
 func main() {
 	deque:=NewDeque()
-	PushFront(deque,3)
-	PushFront(deque,2)
-	PushFront(deque,1)
-	PushBack(deque,4)
-	PushBack(deque,5)
-	PushBack(deque,6)
-	Print(deque)
-	fmt.Println(PopFront(deque))
-	fmt.Println(PopBack(deque))
-	Print(deque)
-	PushFront(deque,"start")
-	PushBack(deque, "finish")
-	Print(deque)
-	Peek(deque.front)
-	Peek(deque.back)
+	deque.PushFront(3)
+	deque.PushFront(2)
+	deque.PushFront(1)
+	deque.PushBack(4)
+	deque.PushBack(5)
+	deque.PushBack(6)
+	deque.PrintDeque()
+	fmt.Println(deque.PopFront())
+	fmt.Println(deque.PopBack())
+	deque.PrintDeque()
+	deque.PushFront("start")
+	deque.PushBack("finish")
+	deque.PrintDeque()
+	deque.Peek(true)
+	deque.Peek(false)
 
 
 }
-func Print(list *Deque){
-	l:=list.front
+func(deque *Deque)PrintDeque(){
+	l:=deque.front
 	for l!=nil{
 		fmt.Println("value: ",l.value)
 		l=l.next
@@ -44,7 +44,7 @@ func Print(list *Deque){
 func NewDeque()*Deque{
 	return new(Deque)
 }
-func PushFront(deque *Deque, value interface{}){
+func (deque *Deque)PushFront(value interface{}){
 	new_node:=&Node{
 		value: value,
 		next:nil,
@@ -58,7 +58,8 @@ func PushFront(deque *Deque, value interface{}){
 		deque.front.next=x
 	}
 }
-func PushBack(deque *Deque, value interface{}){
+
+func (deque *Deque)PushBack(value interface{}){
 	new_node:=&Node{
 		value: value,
 		next:nil,
@@ -71,7 +72,8 @@ func PushBack(deque *Deque, value interface{}){
 		deque.back=new_node
 	}
 }
-func PopFront(deque *Deque)interface{}{
+
+func (deque *Deque)PopFront()interface{}{
 
 	if deque.front==nil && deque.back==nil{
 		return nil
@@ -83,7 +85,8 @@ func PopFront(deque *Deque)interface{}{
 		return deleted
 	}
 }
-func PopBack(deque *Deque)interface{}{
+
+func (deque *Deque)PopBack()interface{}{
 	if deque.front==nil && deque.back==nil{
 		return nil
 	} else {
@@ -98,13 +101,17 @@ func PopBack(deque *Deque)interface{}{
 		return x.value
 	}
 }
-func Peek(node *Node){
-	if node!=nil {
-		fmt.Println("value: ", node.value)
+
+func (deque *Deque)Peek(IsFront bool){
+	if deque.front!=nil && IsFront {
+		fmt.Println("value: ", deque.front.value)
+	} else if deque.back!=nil && !IsFront {
+		fmt.Println("value: ", deque.front.value)
 	} else {
 		fmt.Println("value: ", "null")
 	}
 }
+
 //value:  1
 //value:  2
 //value:  3
