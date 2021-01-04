@@ -33,7 +33,7 @@ func GetCardDeck()Deck{
 func (deck *Deck) Shuffler(){
 	rand.Seed(time.Now().UnixNano()) //Set the seed
 
-	rand.Shuffle(len(*deck), func(i, j int) { //call algorithm
+	rand.Shuffle(len(*deck), func(i, j int) {
 		(*deck)[i], (*deck)[j] = (*deck)[j], (*deck)[i]
 	})
 
