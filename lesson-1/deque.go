@@ -106,7 +106,7 @@ func (deque *Deque)Peek(IsFront bool){
 	if deque.front!=nil && IsFront {
 		fmt.Println("value: ", deque.front.value)
 	} else if deque.back!=nil && !IsFront {
-		fmt.Println("value: ", deque.front.value)
+		fmt.Println("value: ", deque.back.value)
 	} else {
 		fmt.Println("value: ", "null")
 	}
