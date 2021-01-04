@@ -15,22 +15,22 @@ type Node struct {
 
 
 func main() {
-	deque:=NewDeque()
-	deque.PushFront(3)
-	deque.PushFront(2)
-	deque.PushFront(1)
-	deque.PushBack(4)
-	deque.PushBack(5)
-	deque.PushBack(6)
-	deque.PrintDeque()
-	fmt.Println(deque.PopFront())
-	fmt.Println(deque.PopBack())
-	deque.PrintDeque()
-	deque.PushFront("start")
-	deque.PushBack("finish")
-	deque.PrintDeque()
-	deque.Peek(true)
-	deque.Peek(false)
+	dequeue:=NewDeque()
+	dequeue.PushFront(3)
+	dequeue.PushFront(2)
+	dequeue.PushFront(1)
+	dequeue.PushBack(4)
+	dequeue.PushBack(5)
+	dequeue.PushBack(6)
+	dequeue.PrintDeque()
+	fmt.Println(dequeue.PopFront())
+	fmt.Println(dequeue.PopBack())
+	dequeue.PrintDeque()
+	dequeue.PushFront("start")
+	dequeue.PushBack("finish")
+	dequeue.PrintDeque()
+	dequeue.Peek(true)
+	dequeue.Peek(false)
 
 
 }
